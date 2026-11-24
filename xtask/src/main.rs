@@ -107,59 +107,29 @@ fn run_command(cmd: &mut Command) -> Result<()> {
     Ok(())
 }
 
-/// Copy `src` to `dest`, deleting `dest` first, if present.
-///
-/// This is unlike [`fs::copy`] which fails if `dest` exists and is a
-/// read-only file. Bazel creates read-only files in `bazel-bin/`.
-fn copy(src: &Path, dest: &Path) -> Result<u64> {
-    if let Err(e) = fs::remove_file(dest)
-        && e.kind() != std::io::ErrorKind::NotFound
-    {
-        return Err(anyhow!("Failed to remove {}: {}", dest.display(), e));
-    }
-    let len = fs::copy(src, dest).with_context(|| {
-        format!("Failed to copy {} to {}", src.display(), dest.display())
-    })?;
-    Ok(len)
-}
+/// Tools from crates.io, pinned to the versions the course is built with.
+const CRATES_IO_TOOLS: [(&str, &str); 3] =
+    [("mdbook", "0.5.3"), ("mdbook-linkcheck2", "0.12.0"), ("mdbook-svgbob", "0.3.1")];
+
+/// Tools which live in this workspace.
+const WORKSPACE_TOOLS: [&str; 2] = ["mdbook-course", "mdbook-exerciser"];
 
 fn install_tools() -> Result<()> {
     println!("Installing project tools...");
 
-    // Install local and external tools from the workspace by building
-    // them with Bazel.
     let workspace_dir = Path::new(env!("CARGO_WORKSPACE_DIR"));
 
-    let bazel_tools = [
-        ("//mdbook-course", "mdbook-course"),
-        ("//mdbook-exerciser", "mdbook-exerciser"),
-        ("@binaries//:mdbook-linkcheck2__mdbook-linkcheck2", "mdbook-linkcheck2"),
-        ("@binaries//:mdbook__mdbook", "mdbook"),
-        ("@svgbob//:mdbook-svgbob__mdbook-svgbob", "mdbook-svgbob"),
-    ];
-
-    let mut cmd = Command::new("bazel");
-    cmd.arg("build");
-    for (target, _) in &bazel_tools {
-        cmd.arg(target);
+    for (name, version) in CRATES_IO_TOOLS {
+        let mut cmd = Command::new(env!("CARGO"));
+        cmd.args(["install", "--locked", name, "--version", version]);
+        run_command(&mut cmd)?;
     }
-    cmd.current_dir(workspace_dir);
-    run_command(&mut cmd)?;
 
-    // Copy compiled tools to ~/.cargo/bin, the same way `cargo
-    // install` would.
-    let cargo_home = match env::var("CARGO_HOME") {
-        Ok(cargo_home) => PathBuf::from(cargo_home),
-        Err(_) => {
-            std::env::home_dir().ok_or(anyhow!("No home directory"))?.join(".cargo")
-        }
-    };
-    let bin_dir = cargo_home.join("bin");
-
-    for (target, name) in bazel_tools {
-        let src = get_bazel_output_path(target)?;
-        let dest = bin_dir.join(name);
-        copy(&src, &dest)?;
+    for name in WORKSPACE_TOOLS {
+        let mut cmd = Command::new(env!("CARGO"));
+        cmd.args(["install", "--locked", "--path"]);
+        cmd.arg(workspace_dir.join(name));
+        run_command(&mut cmd)?;
     }
 
     // Uninstall original linkcheck if currently installed (see issue no 2773)
@@ -361,20 +331,3 @@ fn build(output_arg: Option<PathBuf>) -> Result<()> {
     run_mdbook_command("build", output_arg)
 }
 
-/// Queries Bazel to find the output file path for a given target.
-fn get_bazel_output_path(target: &str) -> Result<PathBuf> {
-    let output = Command::new("bazel")
-        .args(["cquery", "--output=files", target])
-        .output()
-        .with_context(|| format!("Failed to run bazel cquery for {target}"))?;
-    if !output.status.success() {
-        return Err(anyhow!(
-            "bazel cquery failed: {}",
-            String::from_utf8_lossy(&output.stderr)
-        ));
-    }
-    let stdout = String::from_utf8(output.stdout)?;
-    let relative_path = stdout.trim();
-    let workspace_dir = Path::new(env!("CARGO_WORKSPACE_DIR"));
-    Ok(workspace_dir.join(relative_path))
-}

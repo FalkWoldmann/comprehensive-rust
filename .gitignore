@@ -3,8 +3,6 @@
 target/
 *.bin
 
-# Bazel files
-/bazel-*
 
 # macOS artifacts
 .DS_Store

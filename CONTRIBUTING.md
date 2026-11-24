@@ -70,9 +70,6 @@ Install `dprint` using their
 [installation instructions](https://dprint.dev/install/) and install `rustfmt`
 via `rustup`.
 
-Install Bazel via the
-[Bazelisk version manager](https://github.com/bazelbuild/bazelisk).
-
 On Debian, you can install the other tools using:
 
 ```sh
@@ -84,7 +81,7 @@ sudo apt install yapf3
 On MacOS with [Homebrew], you can install the necessary tools with:
 
 ```shell
-brew install dprint yapf bazelisk
+brew install dprint yapf
 ```
 
 ### Windows
@@ -92,9 +89,6 @@ brew install dprint yapf bazelisk
 Install `dprint` using their
 [installation instructions](https://dprint.dev/install/) and install `rustfmt`
 via `rustup`.
-
-Install Bazel via the
-[Bazelisk version manager](https://github.com/bazelbuild/bazelisk).
 
 > _TODO: fill in how to install `yapf` on Windows._
 

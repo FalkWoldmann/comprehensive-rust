@@ -92,12 +92,9 @@ The course is built using a few tools:
 - [mdbook-exerciser](mdbook-exerciser/)
 - [mdbook-course](mdbook-course/)
 - [mdbook-linkcheck2](https://github.com/marxin/mdbook-linkcheck2)
-- [Bazel](https://bazel.build/)
 
-First, install Rust by following the instructions on https://rustup.rs/. Next,
-install Bazel via the
-[Bazelisk version manager](https://github.com/bazelbuild/bazelisk). Then clone
-this repository:
+First, install Rust by following the instructions on https://rustup.rs/. Then
+clone this repository:
 
 ```shell
 git clone https://github.com/FalkWoldmann/comprehensive-rust/
