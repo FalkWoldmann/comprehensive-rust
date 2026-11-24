@@ -89,7 +89,7 @@ list of options.
     ensures that `apt-get update` is run only once per job. This significantly
     speeds up CI runs.
   - **`install-mdbook`:** A composite action to install `mdbook` and its
-    dependencies, including `pandoc` and `texlive`.
+    preprocessors.
   - **`setup-rust-cache`:** A composite action that configures the
     `Swatinem/rust-cache` action.
 

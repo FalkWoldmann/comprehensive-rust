@@ -73,12 +73,10 @@ via `rustup`.
 Install Bazel via the
 [Bazelisk version manager](https://github.com/bazelbuild/bazelisk).
 
-Install [pandoc 3.7.0.1](https://github.com/jgm/pandoc/releases/tag/3.7.0.1).
-
 On Debian, you can install the other tools using:
 
 ```sh
-sudo apt install yapf3 texlive texlive-luatex librsvg2-bin fonts-noto
+sudo apt install yapf3
 ```
 
 ### MacOS

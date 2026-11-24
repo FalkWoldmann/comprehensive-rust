@@ -134,7 +134,6 @@ fn install_tools() -> Result<()> {
         ("//mdbook-course", "mdbook-course"),
         ("//mdbook-exerciser", "mdbook-exerciser"),
         ("@binaries//:mdbook-linkcheck2__mdbook-linkcheck2", "mdbook-linkcheck2"),
-        ("@binaries//:mdbook-pandoc__mdbook-pandoc", "mdbook-pandoc"),
         ("@binaries//:mdbook__mdbook", "mdbook"),
         ("@svgbob//:mdbook-svgbob__mdbook-svgbob", "mdbook-svgbob"),
     ];

@@ -18,36 +18,6 @@ class = "bob"
 [preprocessor.course]
 verbose = false # Report timing information.
 
-[output.pandoc]
-optional = true
-disabled = true
-hosted-html = "https://falkwoldmann.github.io/comprehensive-rust/"
-
-[output.pandoc.profile.pdf]
-output-file = "comprehensive-rust.pdf"
-pdf-engine = "lualatex"
-
-[output.pandoc.profile.pdf.variables]
-mainfont = "Noto Serif"
-sansfont = "Noto Sans"
-monofont = "Noto Sans Mono"
-mainfontfallback = [
-  "NotoColorEmoji:mode=harf",
-  "NotoNaskhArabic:",
-]
-sansfontfallback = [
-  "NotoSansArabic:",
-]
-monofontfallback = [
-  "NotoColorEmoji:mode=harf",
-  "NotoSansMath:",
-  "NotoSansMonoCJKSC:",
-  "NotoSansArabic:",
-]
-geometry = ["margin=1.25in"]
-linkcolor = "blue"
-urlcolor = "red"
-
 [output.html]
 smart-punctuation = true
 additional-js = [
@@ -291,7 +261,6 @@ output-directory = "comprehensive-rust-exercises"
 optional = true
 follow-web-links = false # change to true to check web links
 exclude = [
-  "comprehensive-rust.pdf",
   "comprehensive-rust-exercises.zip",
   # "crates.io", # uncomment when follow-web-links is true
 ]
