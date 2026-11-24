@@ -9,6 +9,8 @@ this course and the exercises come from
 [The Rust Programming Language](https://doc.rust-lang.org/book/) as the
 reference.
 
+Read it at **https://falkwoldmann.github.io/comprehensive-rust/**.
+
 The fork is not meant to be merged back and does not track upstream. If you
 want the full course with all its deep dives and translations, use the original
 at https://google.github.io/comprehensive-rust/.
