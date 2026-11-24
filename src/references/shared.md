@@ -39,8 +39,7 @@ value.
 
 - A reference is said to "borrow" the value it refers to, and this is a good
   model for students not familiar with pointers: code can use the reference to
-  access the value, but is still "owned" by the original variable. The course
-  will get into more detail on ownership in day 3.
+  access the value, but is still "owned" by the original variable.
 
 - References are implemented as pointers, and a key advantage is that they can
   be much smaller than the thing they point to. Students familiar with C or C++
@@ -61,9 +60,7 @@ value.
   that value was mutable. Try `*r = 'X'`.
 
 - Rust is tracking the lifetimes of all references to ensure they live long
-  enough. Dangling references cannot occur in safe Rust.
-
-- We will talk more about borrowing and preventing dangling references when we
-  get to ownership.
+  enough. Dangling references cannot occur in safe Rust. We will see the rules
+  that guarantee this at the end of this segment.
 
 </details>

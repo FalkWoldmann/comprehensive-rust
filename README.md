@@ -1,50 +1,85 @@
-# Comprehensive Rust 🦀
+# Comprehensive Rust 🦀 (seminar fork)
 
-[![Build workflow](https://img.shields.io/github/actions/workflow/status/google/comprehensive-rust/build.yml?style=flat-square)](https://github.com/google/comprehensive-rust/actions/workflows/build.yml?query=branch%3Amain)
-[![GitHub contributors](https://img.shields.io/github/contributors/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/graphs/contributors)
-[![GitHub stars](https://img.shields.io/github/stars/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/stargazers)
+This is a hard fork of [Comprehensive Rust](https://github.com/google/comprehensive-rust),
+the Rust course developed by the Android team at Google. It is mainly intended
+for the weekend seminar "Einführung in die Programmiersprache Rust" at
+[NORDAKADEMIE](https://www.nordakademie.de/), where the lecture parts follow
+this course and the exercises come from
+[Rustlings](https://rustlings.rust-lang.org/), with
+[The Rust Programming Language](https://doc.rust-lang.org/book/) as the
+reference.
 
-This repository has the source code for Comprehensive Rust 🦀, a multi-day Rust
-course developed by the Android team. The course covers all aspects of Rust,
-from basic syntax to generics and error handling. It also includes deep dives on
-[Android], [Chromium], [bare-metal], and [concurrency].
+The fork is not meant to be merged back and does not track upstream. If you
+want the full course with all its deep dives and translations, use the original
+at https://google.github.io/comprehensive-rust/.
 
-[Android]: https://google.github.io/comprehensive-rust/android.html
-[Chromium]: https://google.github.io/comprehensive-rust/chromium.html
-[bare-metal]: https://google.github.io/comprehensive-rust/bare-metal.html
-[concurrency]: https://google.github.io/comprehensive-rust/concurrency.html
+## Differences from upstream
 
-Read the course at **https://google.github.io/comprehensive-rust/**.
+The seminar alternates between slides from this course and Rustlings exercises,
+and students look things up in the Rust Book. That only works well when all
+three cover topics in roughly the same order, and upstream does not: it
+introduces references on day 1 and ownership on day 3. In class this left the
+students wondering what references are for, see
+[this discussion](https://github.com/google/comprehensive-rust/discussions/2956).
+The changes below all follow from that.
 
-## Course Format and Target Audience
+### Ownership comes before references
 
-The course is used internally at Google to teach Rust to experienced software
-engineers, typically with a background in C++ or Java.
+Memory Management (program memory, ownership, moves, `clone`, copy types) moved
+from day 3 to day 1, directly before References, as in chapter 4 of the Rust
+Book and the `move_semantics` exercises in Rustlings. References now start with
+a slide that continues the move example and shows a borrow as the way out, and
+the segment ends with the borrow checker's rules, which upstream only shows on
+day 3. The ownership slides use `String` and tuples in their examples because
+structs are not known yet at that point.
 
-The course is taught in a classroom setting, and we hope it will be useful for
-others who want to teach Rust to their team. The course is less ideal for
-self-study, since you would miss out on classroom discussions. You would not see
-the questions and answers, nor the compiler errors we trigger when going through
-the code samples. We hope to improve the self-study experience via
-[speaker notes](https://github.com/google/comprehensive-rust/issues/53) and by
-[publishing videos](https://github.com/google/comprehensive-rust/issues/52).
+### The rest of Rust Fundamentals follows the Rust Book more closely
 
-## Press
+| Session         | Segments                                                 | Rust Book   |
+| --------------- | -------------------------------------------------------- | ----------- |
+| Day 1 morning   | Hello World, Types and Values, Control Flow Basics       | ch. 1, 3    |
+| Day 1 afternoon | Tuples and Arrays, Memory Management, References         | ch. 3, 4    |
+| Day 2 morning   | User-Defined Types, Pattern Matching, Methods and Traits | ch. 5, 6    |
+| Day 2 afternoon | Generics, Standard Library Types, Closures               | ch. 8, 10   |
+| Day 3 morning   | Standard Library Traits, Error Handling                  | ch. 9       |
+| Day 3 afternoon | Ownership in Practice, Lifetimes                         | ch. 10      |
+| Day 4 morning   | Testing, Iterators, Modules                              | ch. 11, 13  |
+| Day 4 afternoon | Smart Pointers, Unsafe Rust                              | ch. 15, 20  |
 
-Articles and blog posts from around the web which cover Comprehensive Rust:
+`Drop` and interior mutability (`Cell`, `RefCell`) moved into Smart Pointers,
+where chapter 15 of the Rust Book has them. What is left of upstream's Borrowing
+segment is now called Ownership in Practice: it revisits ownership and borrowing
+on day 3 with structs, methods and collections, and holds the Builder Type and
+Wizard's Inventory exercises, which need more of the language than day 1 has
+covered.
 
-- 2023-09-08:
-  _[Teaching Rust in 5 days](https://mo8it.com/blog/teaching-rust/)_.
-  Comprehensive Rust was used as a base for a 5-day university class on Rust.
-- 2023-09-21:
-  _[Scaling Rust Adoption Through Training](https://security.googleblog.com/2023/09/scaling-rust-adoption-through-training.html)_.
-  We published a blog post with details on the development of the course.
-- 2023-10-02:
-  _[In Search of Rust Developers, Companies Turn to In-House Training](https://www.darkreading.com/application-security/seeking-rust-developers-in-house-training)_.
-  About how Microsoft, Google, and others are training people in Rust.
-- 2024-10-18:
-  _[Rust Training at Scale | Rust Global @ RustConf 2024](https://youtu.be/7h5KyMqt2-Q?si=4M99HdWWxMaqN8Zr)_.
-  What Google learned from teaching Comprehensive Rust for more than two years.
+The order still differs from the Rust Book in three places, each time because an
+exercise depends on a later topic. Modules stays on day 4 since its exercise
+uses trait objects, iterators and closures. Standard Library Types comes after
+Generics since the Counter exercise is generic. Error Handling comes after
+traits since it needs `From` and `dyn Error`.
+
+### Only what the Rust Book covers
+
+The deep dives on Android, Chromium, bare-metal Rust, idiomatic Rust, unsafe
+Rust and macros are removed. They have no counterpart in the Rust Book and are
+out of reach for a weekend seminar with Rust beginners. Rust Fundamentals and
+the Concurrency deep dive (chapters 16 and 17 of the Rust Book) remain.
+
+### English only
+
+The translations (`po/`) and the tooling around them (the gettext preprocessor,
+the language picker, the per-language builds in CI) are removed. The
+translations are tied to upstream's text and page order, so after the
+reordering they would be out of date on most pages, and nobody maintains them
+here. The translated versions of the original course are
+linked from https://google.github.io/comprehensive-rust/.
+
+### Housekeeping that follows from the above
+
+Redirects, CI jobs, Dependabot entries and workspace members that pointed at
+removed content are gone. Pages that moved to another segment have a redirect
+from their old URL.
 
 ## Setup
 
@@ -52,7 +87,6 @@ The course is built using a few tools:
 
 - [mdbook](https://github.com/rust-lang/mdBook)
 - [mdbook-svgbob](https://github.com/boozook/mdbook-svgbob)
-- [mdbook-i18n-helpers and i18n-report](https://github.com/google/mdbook-i18n-helpers)
 - [mdbook-exerciser](mdbook-exerciser/)
 - [mdbook-course](mdbook-course/)
 - [mdbook-linkcheck2](https://github.com/marxin/mdbook-linkcheck2)
@@ -64,7 +98,7 @@ install Bazel via the
 this repository:
 
 ```shell
-git clone https://github.com/google/comprehensive-rust/
+git clone https://github.com/FalkWoldmann/comprehensive-rust/
 cd comprehensive-rust
 ```
 
@@ -85,18 +119,20 @@ Here are some of the commonly used commands you can run in the project. Run
 | Command                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `cargo xtask install-tools` | Install all the tools the project depends on.                                                                                                                                                                                                                                                                                                                                                                                          |
-| `cargo xtask serve`         | Start a web server with the course. You'll find the content on http://localhost:3000. To serve any of the translated versions of the course, add the language flag (--language or -l) followed by xx, where xx is the ISO 639 language code (e.g. cargo xtask serve -l da for the Danish translation).                                                                                                                                 |
+| `cargo xtask serve`         | Start a web server with the course. You'll find the content on http://localhost:3000.                                                                                                                                 |
 | `cargo xtask rust-tests`    | Test the included Rust snippets.                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `cargo xtask web-tests`     | Run the web driver tests in the tests directory.                                                                                                                                                                                                                                                                                                                                                                                       |
-| `cargo xtask build`         | Create a static version of the course in the `book/` directory. Note that you have to separately build and zip exercises and add them to book/html. To build any of the translated versions of the course, add the language flag (--language or -l) followed by xx, where xx is the ISO 639 language code (e.g. cargo xtask build -l da for the Danish translation). [TRANSLATIONS.md](TRANSLATIONS.md) contains further instructions. |
+| `cargo xtask build`         | Create a static version of the course in the `book/` directory. Note that you have to separately build and zip exercises and add them to book/html. |
 
 > **Note** On Windows, you need to enable symlinks
 > (`git config --global core.symlinks true`) and Developer Mode.
 
 ## Contributing
 
-We welcome contributions. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for
-details.
+Changes that are useful for the course in general should go to
+[upstream](https://github.com/google/comprehensive-rust) instead, see its
+[CONTRIBUTING.md](CONTRIBUTING.md). Issues and pull requests here are welcome
+for anything specific to the seminar.
 
 ## License
 
@@ -109,10 +145,3 @@ Commons Attribution 4.0 International License.
 - **Documentation & Content:** All non-source code assets—specifically Markdown
   (`.md`) files, documentation, and images—are licensed under the
   [Creative Commons Attribution 4.0 International License](LICENSE-CC-BY).
-
-## Contact
-
-For questions or comments, please contact
-[Martin Geisler](mailto:mgeisler@google.com) or start a
-[discussion on GitHub](https://github.com/google/comprehensive-rust/discussions).
-We would love to hear from you.

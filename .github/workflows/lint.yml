@@ -39,7 +39,7 @@ jobs:
       - name: Install formatting dependencies
         uses: ./.github/workflows/apt-get-install
         with:
-          packages: gettext yapf3
+          packages: yapf3
 
       - name: Install pinned nightly for rustfmt
         run: |

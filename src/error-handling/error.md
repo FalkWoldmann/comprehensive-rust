@@ -39,6 +39,10 @@ fn main() {
 
 <details>
 
+`Box<dyn Error>` is an owned trait object: a heap-allocated value of some type
+that implements `Error`. Students have seen `&dyn Trait` in the Generics
+segment; `Box` is covered in detail on day 4.
+
 The `read_count` function can return `std::io::Error` (from file operations) or
 `std::num::ParseIntError` (from `String::parse`).
 

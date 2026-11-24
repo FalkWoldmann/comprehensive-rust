@@ -43,6 +43,10 @@ Here's the single-module implementation of the GUI library:
 
 <details>
 
+The code stores its widgets as `Box<dyn Widget>`, an owned trait object. `Box`
+is covered in the Smart Pointers segment this afternoon; for this exercise
+students only need to move the code around, not change it.
+
 Encourage students to divide the code in a way that feels natural for them, and
 get accustomed to the required `mod`, `use`, and `pub` declarations. Afterward,
 discuss what organizations are most idiomatic.

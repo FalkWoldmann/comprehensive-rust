@@ -12,8 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Constants are evaluated at compile time and their values are [inlined][1]
 wherever they are used:
 
-<!-- mdbook-xgettext: skip -->
-
 ```rust,editable
 # // Copyright 2024 Google LLC
 # // SPDX-License-Identifier: Apache-2.0

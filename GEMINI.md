@@ -1,9 +1,10 @@
 # Project Overview
 
-This repository contains the source code for Comprehensive Rust, a family of
-courses on Rust developed by Google, starting with Rust foundations, and
-including deep dives into specialized topics like Android, Chromium, bare-metal
-development, and concurrency. The project is a Rust workspace that leverages
+This repository is a hard fork of Comprehensive Rust, the Rust course developed
+by Google, adapted for a university seminar. It contains Rust Fundamentals,
+reordered to follow the Rust Book and Rustlings, and the Concurrency deep dive;
+the other deep dives and the translations are removed. `README.md` explains the
+differences from upstream. The project is a Rust workspace that leverages
 `mdbook` to generate a course website.
 
 ## Key Technologies
@@ -21,7 +22,7 @@ development, and concurrency. The project is a Rust workspace that leverages
 # Building and Running
 
 The project uses `cargo xtask` for project-specific automation, like builds,
-tests, and managing translations.
+and tests.
 
 ## Setup
 
@@ -46,14 +47,13 @@ list of options.
 
 - **Serve the Course Locally:** Starts a web server to view the course content.
   ```bash
-  cargo xtask serve [--language <ISO_639_language_code>] [--output <output_directory>]
+  cargo xtask serve [--output <output_directory>]
   ```
-  (e.g., `cargo xtask serve -l da` for the Danish translation)
 
 - **Build the Course:** Creates a static version of the course in the `book/`
   directory.
   ```bash
-  cargo xtask build [--language <ISO_639_language_code>] [--output <output_directory>]
+  cargo xtask build [--output <output_directory>]
   ```
 
 - **Run Rust Snippet Tests:** Tests all Rust code snippets included in the
@@ -183,8 +183,8 @@ updating exercises, follow these structural conventions:
     provide metadata.
   - **Doc Comments:** Standard Rust doc comments (`///`, `//!`) are used.
     `/// # Safety` is used to document safety preconditions for `unsafe` code.
-  - **Comments:** HTML comments (`<!-- ... -->`) are used for editor/translator
-    instructions and content control (e.g., `mdbook-xgettext: skip`).
+  - **Comments:** HTML comments (`<!-- ... -->`) are used for editor
+    instructions.
 
 # Project-Specific Technical Context
 

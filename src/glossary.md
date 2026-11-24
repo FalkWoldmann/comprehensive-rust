@@ -3,13 +3,10 @@ Copyright 2023 Google LLC
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-<!-- i18n:comment Please keep { #glossary } untranslated. -->
-
 # Glossary { #glossary }
 
 The following is a glossary which aims to give a short definition of many Rust
-terms. For translations, this also serves to connect the term back to the
-English original.
+terms.
 
 <style>
 h1#glossary ~ ul {
@@ -29,10 +26,6 @@ h1#glossary ~ ul > li:first-line {
 }
 </style>
 
-<!-- i18n:comment Please add the English term in italic after your -->
-<!-- i18n:comment translated term. Also, please keep the hard line -->
-<!-- i18n:comment breaks to ensure a nice formatting. -->
-
 - allocate:\
   Dynamic memory allocation on [the heap](memory-management/review.md).
 - array:\
@@ -43,14 +36,14 @@ h1#glossary ~ ul > li:first-line {
   between types.
 - Bare-metal Rust:\
   Low-level Rust development, often deployed to a system without an operating
-  system. See [Bare-metal Rust](bare-metal.md).
+  system.
 - block:\
   See [Blocks](control-flow-basics/blocks-and-scopes.md) and _scope_.
 - borrow:\
   See [Borrowing](borrowing/shared.md).
 - borrow checker:\
   The part of the Rust compiler which checks that all
-  [borrows](borrowing/borrowck.md) are valid.
+  [borrows](references/borrowck.md) are valid.
 - brace:\
   `{` and `}`. Also called _curly brace_, they delimit
   [_blocks_](control-flow-basics/blocks-and-scopes.md).

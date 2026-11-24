@@ -18,9 +18,6 @@ We can now understand the two string types in Rust:
 - `&str` is a slice of UTF-8 encoded bytes, similar to `&[u8]`.
 - `String` is an owned buffer of UTF-8 encoded bytes, similar to `Vec<T>`.
 
-<!-- Avoid using fixed integers when slicing since this breaks
-translations. Using the length of s1 and s2 is safe. -->
-
 ```rust,editable
 # // Copyright 2024 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
@@ -49,6 +46,11 @@ fn main() {
 - Rust's `String` type is a wrapper around a vector of bytes. As with a
   `Vec<T>`, it is owned.
 
+- A function that only reads a string should take `&str` rather than `&String`:
+  a `&String` converts to `&str` automatically, so such a function accepts both
+  owned strings and string literals. Revisit `say_hello` from the start of this
+  segment and change its parameter to `&str`.
+
 - As with many other types `String::from()` creates a string from a string
   literal; `String::new()` creates a new empty string, to which string data can
   be added using the `push()` and `push_str()` methods.
@@ -68,7 +70,6 @@ fn main() {
 
 - Byte strings literals allow you to create a `&[u8]` value directly:
 
-  <!-- mdbook-xgettext: skip -->
   ```rust,editable
   # // Copyright 2024 Google LLC
   # // SPDX-License-Identifier: Apache-2.0
@@ -83,7 +84,6 @@ fn main() {
   `r"\n" == "\\n"`. You can embed double-quotes by using an equal amount of `#`
   on either side of the quotes:
 
-  <!-- mdbook-xgettext: skip -->
   ```rust,editable
   # // Copyright 2024 Google LLC
   # // SPDX-License-Identifier: Apache-2.0

@@ -1,65 +1,17 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-# Usage: build.sh <book-lang> <dest-dir>
+# Usage: build.sh <dest-dir>
 #
-# Build the course as of the date specified specified in the
-# POT-Creation-Date header of po/$book_lang.po. The output can be
-# found in $dest_dir.
-#
-# The src/ and third_party/ directories are left in a dirty state so
-# you can run `mdbook test` and other commands afterwards.
-#
-# See also TRANSLATIONS.md.
+# Build the course, including the PDF version and the exercise archive. The
+# output can be found in $dest_dir.
 
-book_lang=${1:?"Usage: $0 <book-lang> <dest-dir>"}
-dest_dir=${2:?"Usage: $0 <book-lang> <dest-dir>"}
+dest_dir=${1:?"Usage: $0 <dest-dir>"}
 
-if [ "$book_lang" = "en" ]; then
-    echo "::group::Building English course"
-else
-    pot_creation_date=$(grep --max-count 1 '^"POT-Creation-Date:' "po/$book_lang.po" | sed -E 's/".*: (.*)\\n"/\1/')
-    pot_creation_date=${pot_creation_date:-now}
-    echo "::group::Building $book_lang translation as of $pot_creation_date"
-
-    # Back-date the sources to POT-Creation-Date. The content lives in two
-    # directories:
-    rm -r src/ third_party/
-    # Restore src/, third_party/ and book.toml from the past commit
-    git restore --source "$(git rev-list -n 1 --before "$pot_creation_date" @)" src/ third_party/ book.toml
-
-    # Sanitize book.toml for mdbook 0.5 compatibility
-    sed -i '/multilingual/d' book.toml
-    sed -i '/curly-quotes/d' book.toml
-
-    # Set language and adjust site URL.
-    # TODO: Clearing the redirects is no longer necessary since we restore book.toml.
-    export MDBOOK_BOOK__LANGUAGE=$book_lang
-    export MDBOOK_OUTPUT__HTML__SITE_URL=/comprehensive-rust/$book_lang/
-    export MDBOOK_OUTPUT__HTML__REDIRECT='{}'
-
-    # Include language-specific Pandoc configuration
-    if [ -f ".github/pandoc/$book_lang.yaml" ]; then
-        export MDBOOK_OUTPUT__PANDOC__PROFILE__PDF__DEFAULTS=".github/pandoc/$book_lang.yaml"
-    fi
-fi
+echo "::group::Building course"
 
 # Enable mdbook-pandoc to build PDF version of the course
 export MDBOOK_OUTPUT__PANDOC__DISABLED=false
-
-case "$book_lang" in
-    ar|bn|fa)
-        # Work around a TeX Live 2025 / LuaLaTeX crash in selnolig.lua when
-        # Babel HarfBuzz shaping is active for Arabic/Persian/Bengali scripts.
-        selnolig_stub_dir=$(mktemp -d)
-        trap 'rm -rf "$selnolig_stub_dir"' EXIT
-        cat << 'EOF' > "$selnolig_stub_dir/selnolig.sty"
-\ProvidesPackage{selnolig}
-\endinput
-EOF
-        export TEXINPUTS="$selnolig_stub_dir:${TEXINPUTS:-}"
-        ;;
-esac
 
 mdbook build -d "$dest_dir"
 

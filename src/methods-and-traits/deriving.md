@@ -34,6 +34,12 @@ fn main() {
 
 <details>
 
+- `Copy` can be derived as well, which opts a type in to the copy semantics we
+  saw on day 1. Add `#[derive(Debug, Clone, Copy)]` to a
+  `struct Point(i32, i32)` and show that a `Point` can still be used after
+  assigning it to another variable. `Copy` requires `Clone`, and deriving it only works if every field
+  is `Copy`: it fails for `Player` because of the `String` field.
+
 - Derivation is implemented with macros, and many crates provide useful derive
   macros to add useful functionality. For example, `serde` can derive
   serialization support for a struct using `#[derive(Serialize)]`.

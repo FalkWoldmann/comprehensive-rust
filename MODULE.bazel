@@ -43,21 +43,9 @@ use_repo(crate, "crates")
 # their dependencies, isolate it below with additional repositories.
 crate.spec(
     artifact = "bin",
-    package = "i18n-report",
-    repositories = ["binaries"],
-    version = "0.2.0",
-)
-crate.spec(
-    artifact = "bin",
     package = "mdbook",
     repositories = ["binaries"],
     version = "0.5.3",
-)
-crate.spec(
-    artifact = "bin",
-    package = "mdbook-i18n-helpers",
-    repositories = ["binaries"],
-    version = "0.4.0",
 )
 crate.spec(
     artifact = "bin",

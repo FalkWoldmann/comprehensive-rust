@@ -13,16 +13,10 @@ This is a free Rust course developed by the Android team at Google. The course
 covers the full spectrum of Rust, from basic syntax to advanced topics like
 generics and error handling.
 
-> The latest version of the course can be found at
-> <https://google.github.io/comprehensive-rust/>. If you are reading somewhere
-> else, please check there for updates.
->
-> The course is available in other languages. Select your preferred language in
-> the top right corner of the page or check the
-> [Translations](running-the-course/translations.md) page for a list of all
-> available translations.
->
-> The course is also available [as a PDF](comprehensive-rust.pdf).
+> This is a hard fork of the course, adapted for the Rust weekend seminar at
+> NORDAKADEMIE. It follows the order of the Rust Book and Rustlings and only
+> contains the parts the Rust Book covers. The original course, with all deep
+> dives and translations, is at <https://google.github.io/comprehensive-rust/>.
 
 The goal of the course is to teach you Rust. We assume you don't know anything
 about Rust and hope to:
@@ -33,16 +27,8 @@ about Rust and hope to:
 
 We call the first four course days Rust Fundamentals.
 
-Building on this, you're invited to dive into one or more specialized topics:
+Building on this, there is one specialized topic:
 
-- [Android](android.md): a half-day course on using Rust for Android platform
-  development (AOSP). This includes interoperability with C, C++, and Java.
-- [Chromium](chromium.md): a half-day course on using Rust in Chromium-based
-  browsers. This includes interoperability with C++ and how to include
-  third-party crates in Chromium.
-- [Bare-metal](bare-metal.md): a whole-day class on using Rust for bare-metal
-  (embedded) development. Both microcontrollers and application processors are
-  covered.
 - [Concurrency](concurrency/welcome.md): a whole-day class on concurrency in
   Rust. We cover both classical concurrency (preemptively scheduling using
   threads and mutexes) and async/await concurrency (cooperative multitasking

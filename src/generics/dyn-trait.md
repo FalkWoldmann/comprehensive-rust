@@ -77,7 +77,7 @@ fn main() {
 
 - When using `dyn Trait`, the trait object needs to be behind some kind of
   indirection. In this case it's a reference, though smart pointer types like
-  `Box` can also be used (this will be demonstrated on day 3).
+  `Box` can also be used (this will be demonstrated on day 4).
 
 - At runtime, a `&dyn Pet` is represented as a "fat pointer", i.e. a pair of two
   pointers: One pointer points to the concrete object that implements `Pet`, and

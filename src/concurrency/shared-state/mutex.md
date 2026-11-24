@@ -11,7 +11,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 [`Mutex<T>`][1] ensures mutual exclusion _and_ allows mutable access to `T`
 behind a read-only interface (another form of
-[interior mutability](../../borrowing/interior-mutability.md)):
+[interior mutability](../../smart-pointers/interior-mutability.md)):
 
 ```rust,editable
 # // Copyright 2024 Google LLC

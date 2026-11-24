@@ -51,7 +51,6 @@ this:
 - [`dprint`] for driving the formatting.
 - [`rustfmt`] for formatting Rust code.
 - [`yapf`] for formatting Python code.
-- [`msgcat`] for formatting PO files.
 
 Run `dprint fmt` to automatically format all files.
 
@@ -79,7 +78,7 @@ Install [pandoc 3.7.0.1](https://github.com/jgm/pandoc/releases/tag/3.7.0.1).
 On Debian, you can install the other tools using:
 
 ```sh
-sudo apt install yapf3 gettext texlive texlive-luatex texlive-lang-cjk texlive-lang-arabic librsvg2-bin fonts-noto
+sudo apt install yapf3 texlive texlive-luatex librsvg2-bin fonts-noto
 ```
 
 ### MacOS
@@ -87,12 +86,10 @@ sudo apt install yapf3 gettext texlive texlive-luatex texlive-lang-cjk texlive-l
 On MacOS with [Homebrew], you can install the necessary tools with:
 
 ```shell
-brew install dprint yapf gettext bazelisk
+brew install dprint yapf bazelisk
 ```
 
 ### Windows
-
-On Windows, you can should install [Gettext tools for Windows].
 
 Install `dprint` using their
 [installation instructions](https://dprint.dev/install/) and install `rustfmt`
@@ -106,9 +103,7 @@ Install Bazel via the
 [`dprint`]: https://dprint.dev/
 [`rustfmt`]: https://github.com/rust-lang/rustfmt
 [`yapf`]: https://github.com/google/yapf
-[`msgcat`]: https://www.gnu.org/software/gettext/manual/html_node/msgcat-Invocation.html
 [Homebrew]: https://brew.sh/
-[Gettext tools for Windows]: https://github.com/vslavik/gettext-tools-windows/releases
 
 ## Contributor License Agreement
 

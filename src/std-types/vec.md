@@ -46,6 +46,10 @@ methods on a `Vec`.
 
 <details>
 
+- `retain` takes a _closure_, an anonymous function written as `|x| ...`, and
+  keeps the elements for which it returns `true`. Closures are covered in the
+  next segment.
+
 - `Vec` is a type of collection, along with `String` and `HashMap`. The data it
   contains is stored on the heap. This means the amount of data doesn't need to
   be known at compile time. It can grow or shrink at runtime.

@@ -32,8 +32,7 @@ fn main() {
 - This slide gets students thinking about references as not simply being
   pointers, since Rust has different rules for references than other languages.
 
-- We'll look at the rest of Rust's borrowing rules on day 3 when we talk about
-  Rust's ownership system.
+- We'll look at the rest of Rust's borrowing rules on the next slide.
 
 ## More to Explore
 

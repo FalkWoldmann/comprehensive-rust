@@ -11,8 +11,6 @@ SPDX-License-Identifier: CC-BY-4.0
 
 While move semantics are the default, certain types are copied by default:
 
-<!-- mdbook-xgettext: skip -->
-
 ```rust,editable
 # // Copyright 2023 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
@@ -25,21 +23,15 @@ fn main() {
 }
 ```
 
-These types implement the `Copy` trait.
-
-You can opt-in your own types to use copy semantics:
-
-<!-- mdbook-xgettext: skip -->
+These types are called `Copy` types. All the scalar types are `Copy`, and so are
+tuples and arrays whose elements are all `Copy`:
 
 ```rust,editable
 # // Copyright 2023 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
 #
-#[derive(Copy, Clone, Debug)]
-struct Point(i32, i32);
-
 fn main() {
-    let p1 = Point(3, 4);
+    let p1 = (3, 4);
     let p2 = p1;
     println!("p1: {p1:?}");
     println!("p2: {p2:?}");
@@ -62,11 +54,13 @@ Copying and cloning are not the same thing:
 
 In the above example, try the following:
 
-- Add a `String` field to `struct Point`. It will not compile because `String`
-  is not a `Copy` type.
-- Remove `Copy` from the `derive` attribute. The compiler error is now in the
-  `println!` for `p1`.
+- Change the tuple to `(3, String::from("four"))`. It will not compile because
+  `String` is not a `Copy` type, so the tuple isn't either. The compiler error
+  is in the `println!` for `p1`.
 - Show that it works if you clone `p1` instead.
+
+`Copy` is a trait, and your own types can opt in to copy semantics by
+implementing it. We will see how once we have covered structs and traits.
 
 # More to Explore
 

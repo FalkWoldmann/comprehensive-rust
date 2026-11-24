@@ -12,8 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 As we saw before, instead of transferring ownership when calling a function, you
 can let a function _borrow_ the value:
 
-<!-- mdbook-xgettext: skip -->
-
 ```rust,editable
 # // Copyright 2023 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
@@ -38,8 +36,9 @@ fn main() {
 
 <details>
 
-This slide is a review of the material on references from day 1, expanding
-slightly to include function arguments and return values.
+This slide is a review of the material on ownership and references from day 1,
+now with a user-defined type as function argument and return value. This segment
+applies the day 1 rules to structs, methods and collections.
 
 # More to Explore
 
@@ -52,7 +51,6 @@ Notes on stack returns and inlining:
   optimization level, the addresses should change, while they stay the same when
   changing to the "RELEASE" setting:
 
-  <!-- mdbook-xgettext: skip -->
   ```rust,editable
   # // Copyright 2023 Google LLC
   # // SPDX-License-Identifier: Apache-2.0

@@ -9,8 +9,8 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Log Filter
 
-Building on the generic logger from this morning, implement a `Filter` that uses
-a closure to filter log messages, sending those that pass the filtering
+Building on the generic logger from earlier today, implement a `Filter` that
+uses a closure to filter log messages, sending those that pass the filtering
 predicate to an inner logger.
 
 ```rust,compile_fail,editable

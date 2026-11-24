@@ -15,11 +15,11 @@ SPDX-License-Identifier: CC-BY-4.0
 This is the first day of Rust Fundamentals. We will cover a broad range of
 topics today:
 
-- Basic Rust syntax: variables, scalar and compound types, enums, structs,
-  references, functions, and methods.
+- Basic Rust syntax: variables, scalar and compound types, and functions.
 - Types and type inference.
 - Control flow constructs: loops, conditionals, and so on.
-- User-defined types: structs and enums.
+- Ownership: how Rust manages memory without a garbage collector.
+- References: borrowing values instead of moving them.
 
 ## Schedule
 
@@ -41,9 +41,12 @@ Please remind the students that:
     Remember that the slides are just a support and you are free to skip them as
     you like.
 
-The idea for the first day is to show the "basic" things in Rust that should
-have immediate parallels in other languages. The more advanced parts of Rust
-come on the subsequent days.
+The idea for the morning is to show the "basic" things in Rust that should have
+immediate parallels in other languages. The afternoon introduces ownership and
+borrowing, the part of Rust that has no direct parallel in most other languages.
+We cover it this early, in the same order as the Rust Book and Rustlings, so
+that references can be motivated by ownership and so that everything on the
+following days can build on it.
 
 If you're teaching this in a classroom, this is a good place to go over the
 schedule. Note that there is an exercise at the end of each segment, followed by

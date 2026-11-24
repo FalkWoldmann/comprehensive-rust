@@ -63,23 +63,15 @@ enum Task {
     RustTests,
     /// Starts a web server with the course.
     Serve {
-        /// ISO 639 language code (e.g. da for the Danish translation).
-        #[arg(short, long)]
-        language: Option<String>,
-
         /// Directory to place the build. If not provided, defaults to the book/
-        /// directory (or the book/xx directory if a language is provided).
+        /// directory.
         #[arg(short, long)]
         output: Option<PathBuf>,
     },
     /// Create a static version of the course.
     Build {
-        /// ISO 639 language code (e.g. da for the Danish translation).
-        #[arg(short, long)]
-        language: Option<String>,
-
         /// Directory to place the build. If not provided, defaults to the book/
-        /// directory (or the book/xx directory if a language is provided).
+        /// directory.
         #[arg(short, long)]
         output: Option<PathBuf>,
     },
@@ -92,8 +84,8 @@ fn execute_task() -> Result<()> {
         Task::WebTests { dir } => run_web_tests(dir),
         Task::CreateSlideList { dir } => create_slide_list(dir),
         Task::RustTests => run_rust_tests(),
-        Task::Serve { language, output } => start_web_server(language, output),
-        Task::Build { language, output } => build(language, output),
+        Task::Serve { output } => start_web_server(output),
+        Task::Build { output } => build(output),
     }
 }
 
@@ -141,9 +133,6 @@ fn install_tools() -> Result<()> {
     let bazel_tools = [
         ("//mdbook-course", "mdbook-course"),
         ("//mdbook-exerciser", "mdbook-exerciser"),
-        ("@binaries//:i18n-report__i18n-report", "i18n-report"),
-        ("@binaries//:mdbook-i18n-helpers__mdbook-gettext", "mdbook-gettext"),
-        ("@binaries//:mdbook-i18n-helpers__mdbook-xgettext", "mdbook-xgettext"),
         ("@binaries//:mdbook-linkcheck2__mdbook-linkcheck2", "mdbook-linkcheck2"),
         ("@binaries//:mdbook-pandoc__mdbook-pandoc", "mdbook-pandoc"),
         ("@binaries//:mdbook__mdbook", "mdbook"),
@@ -349,49 +338,28 @@ fn run_rust_tests() -> Result<()> {
     run_command(&mut cmd)
 }
 
-fn run_mdbook_command(
-    subcommand: &str,
-    language: Option<String>,
-    output_arg: Option<PathBuf>,
-) -> Result<()> {
+fn run_mdbook_command(subcommand: &str, output_arg: Option<PathBuf>) -> Result<()> {
     let workspace_root = Path::new(env!("CARGO_WORKSPACE_DIR"));
 
     let mut cmd = Command::new("mdbook");
     cmd.current_dir(workspace_root).arg(subcommand);
 
-    if let Some(language) = &language {
-        println!("Language: {language}");
-        cmd.env("MDBOOK_BOOK__LANGUAGE", language);
-    }
-
+    // If the 'output' arg is specified by the caller, use that, otherwise output
+    // to the 'book/' directory.
     cmd.arg("-d");
-    cmd.arg(get_output_dir(language, output_arg));
+    cmd.arg(output_arg.unwrap_or_else(|| PathBuf::from("book")));
 
     run_command(&mut cmd)
 }
 
-fn start_web_server(
-    language: Option<String>,
-    output_arg: Option<PathBuf>,
-) -> Result<()> {
+fn start_web_server(output_arg: Option<PathBuf>) -> Result<()> {
     println!("Starting web server ...");
-    run_mdbook_command("serve", language, output_arg)
+    run_mdbook_command("serve", output_arg)
 }
 
-fn build(language: Option<String>, output_arg: Option<PathBuf>) -> Result<()> {
+fn build(output_arg: Option<PathBuf>) -> Result<()> {
     println!("Building course...");
-    run_mdbook_command("build", language, output_arg)
-}
-
-fn get_output_dir(language: Option<String>, output_arg: Option<PathBuf>) -> PathBuf {
-    // If the 'output' arg is specified by the caller, use that, otherwise output to
-    // the 'book/' directory (or the 'book/xx' directory if a language was
-    // specified).
-    if let Some(d) = output_arg {
-        d
-    } else {
-        Path::new("book").join(language.unwrap_or("".to_string()))
-    }
+    run_mdbook_command("build", output_arg)
 }
 
 /// Queries Bazel to find the output file path for a given target.

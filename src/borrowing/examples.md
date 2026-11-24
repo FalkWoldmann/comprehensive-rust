@@ -9,7 +9,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Borrow Errors
 
-As a concrete example of how these borrowing rules prevent memory errors,
+As a concrete example of how the borrowing rules prevent memory errors,
 consider the case of modifying a collection while there are references to its
 elements:
 

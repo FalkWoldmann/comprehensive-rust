@@ -29,10 +29,4 @@ describe("Generic page", () => {
     // any of the <a> links in the searchresults is containing "Welcome"
     await expect($("#mdbook-searchresults").$("*=Welcome")).toBeDisplayed();
   });
-
-  it("should have language button and show language list on click", async () => {
-    await expect($("#language-toggle")).toBeDisplayed();
-    await $("#language-toggle").click();
-    await expect($("#language-list")).toBeDisplayed();
-  });
 });

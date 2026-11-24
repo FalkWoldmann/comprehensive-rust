@@ -9,7 +9,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Clone
 
-Sometimes you _want_ to make a copy of a value. The `Clone` trait accomplishes
+Sometimes you _want_ to make a copy of a value. The `clone` method accomplishes
 this.
 
 ```rust,editable
@@ -28,6 +28,9 @@ fn main() {
 ```
 
 <details>
+
+- The `clone` method comes from the `Clone` trait. We will cover traits later;
+  for now it is enough to know that types such as `String` provide `clone`.
 
 - The idea of `Clone` is to make it easy to spot where heap allocations are
   occurring. Look for `.clone()` and a few others like `vec!` or `Box::new`.

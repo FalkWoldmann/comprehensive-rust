@@ -165,10 +165,6 @@ preprocessor, `mdbook-course`. The following conventions are mandatory:
   **must** use the `{{%session outline%}}` or `{{%segment outline%}}` helpers.
 - **File Includes:** Code for exercises and their solutions **must** be included
   from external files using the standard `mdbook` `{{#include ...}}` helper.
-- **Translation Directives:** To prevent an element (such as a paragraph, code
-  block, or list item) from being translated, place a
-  `<!-- mdbook-xgettext: skip -->` comment on a line by itself, followed by a
-  blank line, immediately before the element.
 
 For a complete explanation of the custom helpers and all available frontmatter
 fields, please refer to the [`mdbook-course` README](mdbook-course/README.md).
@@ -344,32 +340,6 @@ struct Person { name: String }
 Enclose the code block in `<!-- dprint-ignore-start -->` and
 `<!-- dprint-ignore-end -->` to suppress the automatic formatting. Please use
 this sparingly.
-
-## Translations
-
-This section is about what you write in the translation. We describe
-[how to create or update translations elsewhere](TRANSLATIONS.md).
-
-When translating the course, please take the following into account:
-
-- Do not translate:
-  - The course name ("Comprehensive Rust 🦀"). If the name is not easily
-    understood in your language, please add the translated version after the
-    original name.
-  - Variable names (you _should_ translate the comments, though.)
-
-- If the Rust Book has been
-  [translated into your language](https://doc.rust-lang.org/book/appendix-06-translation.html),
-  please use the same vocabulary.
-
-- The text you write is in Markdown format. Make sure to preserve the original
-  formatting in the translation by marking text as `` `code` ``, `_emphasis_`
-  and `**strong emphasis**` like in the original.
-
-- If you find mistakes or things that sound awkward in the original English
-  text, please submit PRs to fix them in the English text! Fixing typos in the
-  translation is great, but we want everybody to benefit from the fixes and that
-  is why we need the fix to be made in the English text too.
 
 ## Licensing and Copyright
 

@@ -23,8 +23,6 @@ What is the type of this variable?
 Use an array such as the above to write a function `transpose` that transposes a
 matrix (turns rows into columns):
 
-<!-- mdbook-xgettext: skip -->
-
 ```bob
            ⎛⎡1 2 3⎤⎞      ⎡1 4 7⎤
 "transpose"⎜⎢4 5 6⎥⎟  "=="⎢2 5 8⎥

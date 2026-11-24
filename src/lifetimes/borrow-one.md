@@ -62,7 +62,9 @@ fn main() {
   somewhat complex and isn't important for the purpose of borrow analysis.
 
 - When we call `find_nearest` the returned reference doesn't borrow `query`, and
-  so we are free to drop it while `nearest` is still active.
+  so we are free to drop it while `nearest` is still active. `drop` is a
+  standard library function that takes ownership of a value, which ends the
+  value's life right there.
 
 - But what happens if we return the wrong borrow? Change the last line of
   `find_nearest` to return `query` instead. Show the compiler error to the

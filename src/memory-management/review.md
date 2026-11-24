@@ -52,6 +52,10 @@ fn main() {
 
 <details>
 
+- `String` is Rust's growable, heap-allocated string type. We use it here
+  because it is the simplest type that owns heap memory; the References segment
+  looks at strings in more detail.
+
 - Mention that a `String` is backed by a `Vec`, so it has a capacity and length
   and can grow if mutable via reallocation on the heap.
 

@@ -105,7 +105,8 @@ In the `say_hello` example:
 - The heap memory allocated for `name` will be freed at the end of the
   `say_hello` function.
 - `main` can retain ownership if it passes `name` as a reference (`&name`) and
-  if `say_hello` accepts a reference as a parameter.
+  if `say_hello` accepts a reference as a parameter. References are the topic of
+  the next segment.
 - Alternatively, `main` can pass a clone of `name` in the first call
   (`name.clone()`).
 - Rust makes it harder than C++ to inadvertently create copies by making move

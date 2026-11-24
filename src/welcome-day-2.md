@@ -17,10 +17,12 @@ We have covered the foundations of Rust:
 - **Basic Types:** Integers, booleans, characters, tuples, and arrays.
 - **Control Flow:** `if` expressions, loops, and `match` expressions.
 - **Functions:** How to define and call functions.
-- **User-Defined Types:** Model data with `struct` and `enum`.
-- **References:** Basic borrowing with `&` and `&mut`.
+- **Ownership:** Every value has one owner, and assignment moves it.
+- **References:** Borrowing with `&` and `&mut`, and the rules the borrow
+  checker enforces.
 
-You can now construct any type in Rust and implement basic logic!
+You now know how Rust manages memory! Today we build our own types on top of
+that and associate behavior with them.
 
 ## Schedule
 

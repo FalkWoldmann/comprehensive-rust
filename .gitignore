@@ -6,10 +6,6 @@ target/
 # Bazel files
 /bazel-*
 
-# Translation artifacts
-po/*.mo
-po/*.po~
-
 # macOS artifacts
 .DS_Store
 

@@ -11,8 +11,6 @@ SPDX-License-Identifier: CC-BY-4.0
 
 A slice gives you a view into a larger collection:
 
-<!-- mdbook-xgettext: skip -->
-
 ```rust,editable
 # // Copyright 2024 Google LLC
 # // SPDX-License-Identifier: Apache-2.0

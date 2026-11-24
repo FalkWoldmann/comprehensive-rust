@@ -14,8 +14,6 @@ Let's write a simple recursive evaluator for arithmetic expressions.
 An example of a small arithmetic expression could be `10 + 20`, which evaluates
 to `30`. We can represent the expression as a tree:
 
-<!-- mdbook-xgettext: skip -->
-
 ```bob
             .-------.
     .------ |   +   | ------.
@@ -28,8 +26,6 @@ to `30`. We can represent the expression as a tree:
 
 A bigger and more complex expression would be `(10 * 9) + ((3 - 4) * 5)`, which
 evaluates to `85`. We represent this as a much bigger tree:
-
-<!-- mdbook-xgettext: skip -->
 
 ```bob
                               .-----.

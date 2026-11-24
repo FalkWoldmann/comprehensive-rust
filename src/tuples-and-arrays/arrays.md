@@ -9,8 +9,6 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Arrays
 
-<!-- mdbook-xgettext: skip -->
-
 ```rust,editable
 # // Copyright 2024 Google LLC
 # // SPDX-License-Identifier: Apache-2.0

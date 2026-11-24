@@ -13,9 +13,3 @@ The material of Comprehensive Rust is licensed under the terms of the Apache 2.0
 license, please see
 [`LICENSE`](https://github.com/google/comprehensive-rust/blob/main/LICENSE) for
 details.
-
-## CXX
-
-The [Interoperability with C++](android/interoperability/cpp.md) section uses an
-image from [CXX](https://cxx.rs/). Please see the `third_party/cxx/` directory
-for details, including the license terms.

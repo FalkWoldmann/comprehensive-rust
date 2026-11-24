@@ -12,8 +12,6 @@ SPDX-License-Identifier: CC-BY-4.0
 Exclusive references, also known as mutable references, allow changing the value
 they refer to. They have type `&mut T`.
 
-<!-- mdbook-xgettext: skip -->
-
 ```rust,editable
 # // Copyright 2023 Google LLC
 # // SPDX-License-Identifier: Apache-2.0

@@ -60,7 +60,6 @@ Key Points:
     for the `None` variant.
   - You can control the discriminant if needed (e.g., for compatibility with C):
 
-    <!-- mdbook-xgettext: skip -->
     ```rust,editable
     # // Copyright 2023 Google LLC
     # // SPDX-License-Identifier: Apache-2.0
@@ -94,7 +93,6 @@ Rust has several optimizations it can employ to make enums take up less space.
   like in practice. It's important to note that the compiler provides no
   guarantees regarding this representation, therefore this is totally unsafe.
 
-  <!-- mdbook-xgettext: skip -->
   ```rust,editable
   # // Copyright 2023 Google LLC
   # // SPDX-License-Identifier: Apache-2.0

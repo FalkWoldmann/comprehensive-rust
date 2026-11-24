@@ -11,8 +11,6 @@ SPDX-License-Identifier: CC-BY-4.0
 
 Rust will look at how the variable is _used_ to determine the type:
 
-<!-- mdbook-xgettext: skip -->
-
 ```rust,editable
 # // Copyright 2023 Google LLC
 # // SPDX-License-Identifier: Apache-2.0
