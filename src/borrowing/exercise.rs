@@ -13,6 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// The solution indexes into the inventory on purpose: holding a reference to
+// a spell while removing it is what the exercise is about.
+#![allow(clippy::needless_range_loop)]
+
 // ANCHOR: solution
 // ANCHOR: setup
 struct Spell {

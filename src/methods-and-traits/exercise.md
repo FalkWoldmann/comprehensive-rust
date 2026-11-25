@@ -9,6 +9,14 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Logger Trait
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `structs3`
+- `enums3`
+- `traits1` to `traits3`
+
+Then continue with the exercise below.
+
 Let's design a simple logging utility, using a trait `Logger` with a `log`
 method. Code that might log its progress can then take an `&impl Logger`. In
 testing, this might put messages in the test logfile, while in a production

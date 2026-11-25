@@ -1,8 +1,9 @@
 # Comprehensive Rust 🦀 (seminar fork)
 
-This is a hard fork of [Comprehensive Rust](https://github.com/google/comprehensive-rust),
-the Rust course developed by the Android team at Google. It is mainly intended
-for the weekend seminar "Einführung in die Programmiersprache Rust" at
+This is a hard fork of
+[Comprehensive Rust](https://github.com/google/comprehensive-rust), the Rust
+course developed by the Android team at Google. It is mainly intended for the
+weekend seminar "Einführung in die Programmiersprache Rust" at
 [NORDAKADEMIE](https://www.nordakademie.de/), where the lecture parts follow
 this course and the exercises come from
 [Rustlings](https://rustlings.rust-lang.org/), with
@@ -11,9 +12,9 @@ reference.
 
 Read it at **https://falkwoldmann.github.io/comprehensive-rust/**.
 
-The fork is not meant to be merged back and does not track upstream. If you
-want the full course with all its deep dives and translations, use the original
-at https://google.github.io/comprehensive-rust/.
+The fork is not meant to be merged back and does not track upstream. If you want
+the full course with all its deep dives and translations, use the original at
+https://google.github.io/comprehensive-rust/.
 
 ## Differences from upstream
 
@@ -37,16 +38,16 @@ structs are not known yet at that point.
 
 ### The rest of Rust Fundamentals follows the Rust Book more closely
 
-| Session         | Segments                                                 | Rust Book   |
-| --------------- | -------------------------------------------------------- | ----------- |
-| Day 1 morning   | Hello World, Types and Values, Control Flow Basics       | ch. 1, 3    |
-| Day 1 afternoon | Tuples and Arrays, Memory Management, References         | ch. 3, 4    |
-| Day 2 morning   | User-Defined Types, Pattern Matching, Methods and Traits | ch. 5, 6    |
-| Day 2 afternoon | Generics, Standard Library Types, Closures               | ch. 8, 10   |
-| Day 3 morning   | Standard Library Traits, Error Handling                  | ch. 9       |
-| Day 3 afternoon | Ownership in Practice, Lifetimes                         | ch. 10      |
-| Day 4 morning   | Testing, Iterators, Modules                              | ch. 11, 13  |
-| Day 4 afternoon | Smart Pointers, Unsafe Rust                              | ch. 15, 20  |
+| Session         | Segments                                                 | Rust Book  |
+| --------------- | -------------------------------------------------------- | ---------- |
+| Day 1 morning   | Hello World, Types and Values, Control Flow Basics       | ch. 1, 3   |
+| Day 1 afternoon | Tuples and Arrays, Memory Management, References         | ch. 3, 4   |
+| Day 2 morning   | User-Defined Types, Pattern Matching, Methods and Traits | ch. 5, 6   |
+| Day 2 afternoon | Generics, Standard Library Types, Closures               | ch. 8, 10  |
+| Day 3 morning   | Standard Library Traits, Error Handling                  | ch. 9      |
+| Day 3 afternoon | Ownership in Practice, Lifetimes                         | ch. 10     |
+| Day 4 morning   | Testing, Iterators, Modules                              | ch. 11, 13 |
+| Day 4 afternoon | Smart Pointers, Unsafe Rust                              | ch. 15, 20 |
 
 `Drop` and interior mutability (`Cell`, `RefCell`) moved into Smart Pointers,
 where chapter 15 of the Rust Book has them. What is left of upstream's Borrowing
@@ -61,6 +62,14 @@ uses trait objects, iterators and closures. Standard Library Types comes after
 Generics since the Counter exercise is generic. Error Handling comes after
 traits since it needs `From` and `dyn Error`.
 
+### Rustlings exercises are listed with each exercise
+
+The seminar does the Rustlings exercises for a topic first and the exercise from
+this course after them. Each exercise page therefore starts with the matching
+Rustlings exercises, and Memory Management, which has no exercise of its own on
+day 1, got a page that only lists them. The exercise times in the schedule do
+not include the Rustlings exercises.
+
 ### Only what the Rust Book covers
 
 The deep dives on Android, Chromium, bare-metal Rust, idiomatic Rust, unsafe
@@ -72,10 +81,10 @@ the Concurrency deep dive (chapters 16 and 17 of the Rust Book) remain.
 
 The translations (`po/`) and the tooling around them (the gettext preprocessor,
 the language picker, the per-language builds in CI) are removed. The
-translations are tied to upstream's text and page order, so after the
-reordering they would be out of date on most pages, and nobody maintains them
-here. The translated versions of the original course are
-linked from https://google.github.io/comprehensive-rust/.
+translations are tied to upstream's text and page order, so after the reordering
+they would be out of date on most pages, and nobody maintains them here. The
+translated versions of the original course are linked from
+https://google.github.io/comprehensive-rust/.
 
 ### Housekeeping that follows from the above
 
@@ -115,12 +124,12 @@ You will find the tools in your `~/.cargo/bin/` directory afterwards.
 Here are some of the commonly used commands you can run in the project. Run
 `cargo xtask` to view all available commands.
 
-| Command                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cargo xtask install-tools` | Install all the tools the project depends on.                                                                                                                                                                                                                                                                                                                                                                                          |
-| `cargo xtask serve`         | Start a web server with the course. You'll find the content on http://localhost:3000.                                                                                                                                 |
-| `cargo xtask rust-tests`    | Test the included Rust snippets.                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `cargo xtask web-tests`     | Run the web driver tests in the tests directory.                                                                                                                                                                                                                                                                                                                                                                                       |
+| Command                     | Description                                                                                                                                         |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cargo xtask install-tools` | Install all the tools the project depends on.                                                                                                       |
+| `cargo xtask serve`         | Start a web server with the course. You'll find the content on http://localhost:3000.                                                               |
+| `cargo xtask rust-tests`    | Test the included Rust snippets.                                                                                                                    |
+| `cargo xtask web-tests`     | Run the web driver tests in the tests directory.                                                                                                    |
 | `cargo xtask build`         | Create a static version of the course in the `book/` directory. Note that you have to separately build and zip exercises and add them to book/html. |
 
 > **Note** On Windows, you need to enable symlinks

@@ -9,6 +9,17 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Binary Tree
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `smart_pointers1` (`Box`)
+- `smart_pointers2` (`Rc`)
+- `smart_pointers4` (`Cow`)
+
+`smart_pointers3` uses `Arc` with threads and belongs to the Concurrency deep
+dive.
+
+Then continue with the exercise below.
+
 A binary tree is a tree-type data structure where every node has two children
 (left and right). We will create a tree where each node stores a value. For a
 given node N, all nodes in a N's left subtree contain smaller values, and all

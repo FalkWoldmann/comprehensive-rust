@@ -21,8 +21,8 @@ differences from upstream. The project is a Rust workspace that leverages
 
 # Building and Running
 
-The project uses `cargo xtask` for project-specific automation, like builds,
-and tests.
+The project uses `cargo xtask` for project-specific automation, like builds, and
+tests.
 
 ## Setup
 

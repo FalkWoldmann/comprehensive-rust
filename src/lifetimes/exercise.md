@@ -9,6 +9,12 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Protobuf Parsing
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `lifetimes1` to `lifetimes3`
+
+Then continue with the exercise below.
+
 In this exercise, you will build a parser for the
 [protobuf binary encoding](https://protobuf.dev/programming-guides/encoding/).
 Don't worry, it's simpler than it seems! This illustrates a common parsing

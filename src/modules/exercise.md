@@ -9,6 +9,13 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Modules for a GUI Library
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `modules1` to `modules3`
+- `quiz2`
+
+Then continue with the exercise below.
+
 In this exercise, you will reorganize a small GUI Library implementation. This
 library defines a `Widget` trait and a few implementations of that trait, as
 well as a `main` function.

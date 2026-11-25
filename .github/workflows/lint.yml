@@ -28,8 +28,6 @@ jobs:
 
   format:
     runs-on: ubuntu-latest
-    env:
-      NIGHTLY_VERSION: nightly-2025-09-01
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -41,10 +39,8 @@ jobs:
         with:
           packages: yapf3
 
-      - name: Install pinned nightly for rustfmt
-        run: |
-          rustup toolchain install --profile minimal "$NIGHTLY_VERSION"
-          rustup component add rustfmt --toolchain "$NIGHTLY_VERSION"
+      - name: Install latest nightly for rustfmt
+        run: rustup toolchain install --profile minimal --component rustfmt nightly
 
       - name: Check formatting
         uses: dprint/check@7dc032d8874778fc024f6f9b4a7e6d896782c330 # v2.5

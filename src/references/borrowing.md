@@ -35,8 +35,8 @@ fn main() {
 <details>
 
 - This is the same `say_hello` example as in the previous segment. Remove the
-  `&` in the function signature and in the calls to remind students of the
-  "use of moved value" error that references solve.
+  `&` in the function signature and in the calls to remind students of the "use
+  of moved value" error that references solve.
 
 - The string is still freed exactly once: when its owner, `name`, goes out of
   scope at the end of `main`.

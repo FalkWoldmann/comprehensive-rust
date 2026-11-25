@@ -9,6 +9,12 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Iterator Method Chaining
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `iterators1` to `iterators5`
+
+Then continue with the exercise below.
+
 In this exercise, you will need to find and use some of the provided methods in
 the [`Iterator`][1] trait to implement a complex calculation.
 

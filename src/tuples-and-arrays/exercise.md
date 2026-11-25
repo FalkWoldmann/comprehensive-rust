@@ -9,6 +9,15 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Nested Arrays
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `primitive_types3` (arrays)
+- `primitive_types5` and `primitive_types6` (tuples)
+
+`primitive_types4` is about slices and follows in the References segment.
+
+Then continue with the exercise below.
+
 Arrays can contain other arrays:
 
 ```rust,editable

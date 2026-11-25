@@ -63,6 +63,7 @@ SPDX-License-Identifier: CC-BY-4.0
   - [Move Semantics](memory-management/move.md)
   - [`Clone`](memory-management/clone.md)
   - [Copy Types](memory-management/copy-types.md)
+  - [Exercise: Rustlings](memory-management/rustlings.md)
 - [References](references.md)
   - [Borrowing Instead of Moving](references/borrowing.md)
   - [Shared References](references/shared.md)

@@ -9,6 +9,14 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Geometry
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `primitive_types4` (slices)
+- `move_semantics4` and `move_semantics5`
+- `strings1` to `strings4`
+
+Then continue with the exercise below.
+
 We will create a few utility functions for 3-dimensional geometry, representing
 a point as `[f64;3]`. It is up to you to determine the function signatures.
 

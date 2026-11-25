@@ -9,6 +9,17 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: ROT13
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `conversions1` (`as`)
+- `conversions2` (`From` and `Into`)
+- `conversions5` (`AsRef` and `AsMut`)
+
+`conversions3` and `conversions4` return a `Result` and follow in the Error
+Handling segment.
+
+Then continue with the exercise below.
+
 In this example, you will implement the classic
 ["ROT13" cipher](https://en.wikipedia.org/wiki/ROT13). Copy this code to the
 playground, and implement the missing bits. Only rotate ASCII alphabetic

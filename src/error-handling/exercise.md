@@ -9,6 +9,13 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Rewriting with Result
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `errors1` to `errors6`
+- `conversions3` (`FromStr`) and `conversions4` (`TryFrom`)
+
+Then continue with the exercise below.
+
 In this exercise we're revisiting the expression evaluator exercise that we did
 in day 2. Our initial solution ignores a possible error case: Dividing by zero!
 Rewrite `eval` to instead use idiomatic error handling to handle this error case

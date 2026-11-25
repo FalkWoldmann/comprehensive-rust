@@ -9,6 +9,16 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Elevator Events
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `structs1` and `structs2`
+- `enums1` and `enums2`
+
+`structs3` and `enums3` need methods and follow in the Methods and Traits
+segment.
+
+Then continue with the exercise below.
+
 We will create a data structure to represent an event in an elevator control
 system. It is up to you to define the types and functions to construct various
 events. Use `#[derive(Debug)]` to allow the types to be formatted with `{:?}`.

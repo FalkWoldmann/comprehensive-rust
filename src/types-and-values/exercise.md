@@ -9,6 +9,14 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Fibonacci
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `intro1` and `intro2`
+- `variables1` to `variables6`
+- `primitive_types1` and `primitive_types2`
+
+Then continue with the exercise below.
+
 The Fibonacci sequence begins with `[0, 1]`. For `n > 1`, the next number is the
 sum of the previous two.
 

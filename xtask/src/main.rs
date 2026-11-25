@@ -108,8 +108,11 @@ fn run_command(cmd: &mut Command) -> Result<()> {
 }
 
 /// Tools from crates.io, pinned to the versions the course is built with.
-const CRATES_IO_TOOLS: [(&str, &str); 3] =
-    [("mdbook", "0.5.3"), ("mdbook-linkcheck2", "0.12.0"), ("mdbook-svgbob", "0.3.1")];
+const CRATES_IO_TOOLS: [(&str, &str); 3] = [
+    ("mdbook", "0.5.3"),
+    ("mdbook-linkcheck2", "0.12.0"),
+    ("mdbook-svgbob", "0.3.1"),
+];
 
 /// Tools which live in this workspace.
 const WORKSPACE_TOOLS: [&str; 2] = ["mdbook-course", "mdbook-exerciser"];
@@ -147,7 +150,8 @@ fn uninstall_mdbook_linkcheck() -> Result<()> {
 
     if !output.status.success() {
         let stderr = String::from_utf8_lossy(&output.stderr);
-        // This specific error is OK, it just means the package wasn't installed.
+        // This specific error is OK, it just means the package wasn't
+        // installed.
         if !stderr.contains("did not match any packages") {
             return Err(anyhow!(
                 "Failed to uninstall `mdbook-linkcheck`.\n--- stderr:\n{stderr}"
@@ -233,9 +237,9 @@ fn create_slide_list(html_directory: PathBuf) -> Result<()> {
             .lines()
             .map(|line| {
                 let path = Path::new(line);
-                // We know the path starts with "src/" because of the pathspec in the
-                // `git diff` command, and we need it relative to the html base
-                // directory
+                // We know the path starts with "src/" because of the pathspec
+                // in the `git diff` command, and we need it relative to the
+                // html base directory
                 let stripped_path = path.strip_prefix("src").unwrap();
                 let mut html_path = stripped_path.to_path_buf();
                 // replace the .md extension with .html
@@ -268,7 +272,8 @@ fn create_slide_list(html_directory: PathBuf) -> Result<()> {
             continue;
         }
 
-        // Optimization: check if these are redirection html files and skip these
+        // Optimization: check if these are redirection html files and skip
+        // these
         let content = fs::read_to_string(&full_path)
             .with_context(|| format!("Failed to read slide: {}", slide.display()))?;
         if content.contains("Redirecting to...") {
@@ -284,7 +289,8 @@ fn create_slide_list(html_directory: PathBuf) -> Result<()> {
         }
     }
 
-    // Write the file list into a .ts file that can be read by the JS based webtest
+    // Write the file list into a .ts file that can be read by the JS based
+    // webtest
     let output_path = tests_dir.join("src").join("slides").join("slides.list.ts");
     let mut output_content = "export const slides = [\n".to_string();
     for slide in slides {
@@ -313,8 +319,8 @@ fn run_mdbook_command(subcommand: &str, output_arg: Option<PathBuf>) -> Result<(
     let mut cmd = Command::new("mdbook");
     cmd.current_dir(workspace_root).arg(subcommand);
 
-    // If the 'output' arg is specified by the caller, use that, otherwise output
-    // to the 'book/' directory.
+    // If the 'output' arg is specified by the caller, use that, otherwise
+    // output to the 'book/' directory.
     cmd.arg("-d");
     cmd.arg(output_arg.unwrap_or_else(|| PathBuf::from("book")));
 
@@ -330,4 +336,3 @@ fn build(output_arg: Option<PathBuf>) -> Result<()> {
     println!("Building course...");
     run_mdbook_command("build", output_arg)
 }
-

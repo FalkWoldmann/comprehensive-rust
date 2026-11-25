@@ -9,6 +9,13 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Counter
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `vecs2`
+- `hashmaps1` to `hashmaps3`
+
+Then continue with the exercise below.
+
 In this exercise you will take a very simple data structure and make it generic.
 It uses a
 [`std::collections::HashMap`](https://doc.rust-lang.org/stable/std/collections/struct.HashMap.html)

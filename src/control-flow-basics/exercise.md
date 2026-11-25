@@ -9,6 +9,14 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Collatz Sequence
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `functions1` to `functions5`
+- `if1` to `if3`
+- `quiz1`
+
+Then continue with the exercise below.
+
 The [Collatz Sequence](https://en.wikipedia.org/wiki/Collatz_conjecture) is
 defined as follows, for an arbitrary n<sub>1</sub> greater than zero:
 

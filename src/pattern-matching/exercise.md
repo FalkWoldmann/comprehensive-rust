@@ -9,6 +9,12 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Exercise: Expression Evaluation
 
+Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
+
+- `options1` to `options3`
+
+Then continue with the exercise below.
+
 Let's write a simple recursive evaluator for arithmetic expressions.
 
 An example of a small arithmetic expression could be `10 + 20`, which evaluates

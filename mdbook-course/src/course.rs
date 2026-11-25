@@ -107,7 +107,8 @@ impl Courses {
         let mut current_session_name = None;
 
         for item in &mut book.items {
-            // We only want to process chapters, omitting part titles and separators.
+            // We only want to process chapters, omitting part titles and
+            // separators.
             let BookItem::Chapter(chapter) = item else {
                 continue;
             };
@@ -115,8 +116,8 @@ impl Courses {
             let (frontmatter, content) = split_frontmatter(chapter)?;
             chapter.content = content;
 
-            // If 'course' is given, use that course (if not 'none') and reset the
-            // session.
+            // If 'course' is given, use that course (if not 'none') and reset
+            // the session.
             if let Some(course_name) = &frontmatter.course {
                 current_session_name = None;
                 if course_name == "none" {
@@ -446,8 +447,8 @@ impl Slide {
 
     /// Determine whether the given chapter is a sub-chapter of this slide.
     pub fn is_sub_chapter(&self, chapter: &Chapter) -> bool {
-        // The first `source_path` in the slide is the "parent" chapter, so anything
-        // else is a sub-chapter.
+        // The first `source_path` in the slide is the "parent" chapter, so
+        // anything else is a sub-chapter.
         chapter.source_path.as_ref() != self.source_paths.first()
     }
 
