@@ -14,6 +14,10 @@ Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
 - `vecs2`
 - `hashmaps1` to `hashmaps3`
 
+The second half of `vecs2` uses `.iter().map(...).collect()` with a closure.
+Follow the pattern of `vec_map_example` in the exercise; closures and iterators
+are covered later.
+
 Then continue with the exercise below.
 
 In this exercise you will take a very simple data structure and make it generic.

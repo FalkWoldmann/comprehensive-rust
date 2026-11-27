@@ -11,11 +11,11 @@ SPDX-License-Identifier: CC-BY-4.0
 
 Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
 
-- `conversions1` (`as`)
-- `conversions2` (`From` and `Into`)
-- `conversions5` (`AsRef` and `AsMut`)
+- `using_as`
+- `from_into`
+- `as_ref_mut`
 
-`conversions3` and `conversions4` return a `Result` and follow in the Error
+`from_str` and `try_from_into` return a `Result` and follow in the Error
 Handling segment.
 
 Then continue with the exercise below.

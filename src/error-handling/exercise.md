@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC-BY-4.0
 Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
 
 - `errors1` to `errors6`
-- `conversions3` (`FromStr`) and `conversions4` (`TryFrom`)
+- `from_str` and `try_from_into`
 
 Then continue with the exercise below.
 

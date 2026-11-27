@@ -11,12 +11,11 @@ SPDX-License-Identifier: CC-BY-4.0
 
 Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
 
-- `smart_pointers1` (`Box`)
-- `smart_pointers2` (`Rc`)
-- `smart_pointers4` (`Cow`)
+- `box1`
+- `rc1`
+- `cow1`
 
-`smart_pointers3` uses `Arc` with threads and belongs to the Concurrency deep
-dive.
+`arc1` uses `Arc` with threads and belongs to the Concurrency deep dive.
 
 Then continue with the exercise below.
 

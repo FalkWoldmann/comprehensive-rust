@@ -9,9 +9,11 @@ For this training, we will mostly explore the Rust language through examples
 which can be executed through your browser. This makes the setup much easier and
 ensures a consistent experience for everyone.
 
-Installing Cargo is still encouraged: it will make it easier for you to do the
-exercises. On the last day, we will do a larger exercise that shows you how to
-work with dependencies and for that you need Cargo.
+You also need a local Rust installation: every exercise page starts with a list
+of [Rustlings](https://rustlings.rust-lang.org/) exercises, which run on your
+own machine. Install Rustlings with `cargo install rustlings` and run
+`rustlings init` once. The exercise names in this course are those of Rustlings
+6.5.0.
 
 The code blocks in this course are fully interactive:
 
