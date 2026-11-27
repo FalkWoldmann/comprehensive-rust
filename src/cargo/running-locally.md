@@ -8,17 +8,8 @@ SPDX-License-Identifier: CC-BY-4.0
 If you want to experiment with the code on your own system, then you will need
 to first install Rust. Do this by following the
 [instructions in the Rust Book][1]. This should give you a working `rustc` and
-`cargo`. At the time of writing, the latest stable Rust release has these
-version numbers:
-
-```shell
-% rustc --version
-rustc 1.69.0 (84c898d65 2023-04-16)
-% cargo --version
-cargo 1.69.0 (6e9a83356 2023-04-12)
-```
-
-You can use any later version too since Rust maintains backwards compatibility.
+`cargo`. Check the installation with `rustc --version` and `cargo --version`.
+You need Rust 1.85 or later, since the examples use the 2024 edition.
 
 With this in place, follow these steps to build a Rust binary from one of the
 examples in this training:
@@ -29,7 +20,7 @@ examples in this training:
 
    ```shell
    $ cargo new exercise
-        Created binary (application) `exercise` package
+       Creating binary (application) `exercise` package
    ```
 
 3. Navigate into `exercise/` and use `cargo run` to build and run your binary:
@@ -38,7 +29,7 @@ examples in this training:
    $ cd exercise
    $ cargo run
       Compiling exercise v0.1.0 (/home/mgeisler/tmp/exercise)
-       Finished dev [unoptimized + debuginfo] target(s) in 0.75s
+       Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.75s
         Running `target/debug/exercise`
    Hello, world!
    ```
@@ -60,7 +51,7 @@ examples in this training:
    ```shell
    $ cargo run
       Compiling exercise v0.1.0 (/home/mgeisler/tmp/exercise)
-       Finished dev [unoptimized + debuginfo] target(s) in 0.24s
+       Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.24s
         Running `target/debug/exercise`
    Edit me!
    ```

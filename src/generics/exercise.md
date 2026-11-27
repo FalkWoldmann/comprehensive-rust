@@ -15,6 +15,9 @@ Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
 - `traits4` and `traits5`
 - `quiz3`
 
+In `quiz3` the grade is printed with `{}`, so the type parameter needs the bound
+`std::fmt::Display`, the `{}` counterpart of `Debug`.
+
 Then continue with the exercise below.
 
 In this short exercise, you will implement a generic `min` function that

@@ -11,6 +11,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
 
+- `options1` and `options3`
 - `vecs2`
 - `hashmaps1` to `hashmaps3`
 

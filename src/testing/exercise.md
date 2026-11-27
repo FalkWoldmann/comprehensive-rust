@@ -14,6 +14,9 @@ Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
 - `tests1` to `tests3`
 - `clippy1` to `clippy3`
 
+`tests3` needs the `#[should_panic]` attribute: put it below `#[test]` on a test
+that passes only if the code under test panics.
+
 Then continue with the exercise below.
 
 The [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) is used to

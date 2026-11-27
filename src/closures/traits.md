@@ -66,9 +66,14 @@ concurrently.
 If you have an `FnOnce` (e.g. `take_and_reverse`), you may only call it once.
 Doing so consumes the closure and any values captured by move.
 
-`FnMut` is a subtype of `FnOnce`. `Fn` is a subtype of `FnMut` and `FnOnce`.
-I.e. you can use an `FnMut` wherever an `FnOnce` is called for, and you can use
-an `Fn` wherever an `FnMut` or `FnOnce` is called for.
+`FnOnce` is a supertrait of `FnMut`, and `FnMut` is a supertrait of `Fn`: every
+closure that implements `Fn` also implements `FnMut` and `FnOnce`. I.e. you can
+use an `FnMut` wherever an `FnOnce` is called for, and you can use an `Fn`
+wherever an `FnMut` or `FnOnce` is called for.
+
+The example uses `&'static str`, the type of string literals, and an iterator
+chain. `'static` is a lifetime annotation; lifetimes and iterators are covered
+on days 3 and 4.
 
 When you define a function that takes a closure, you should take `FnOnce` if you
 can (i.e. you call it once), or `FnMut` else, and last `Fn`. This allows the

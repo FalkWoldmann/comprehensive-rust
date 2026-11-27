@@ -12,8 +12,12 @@ SPDX-License-Identifier: CC-BY-4.0
 Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
 
 - `intro1` and `intro2`
-- `variables1` to `variables6`
+- `variables1` to `variables5`
 - `primitive_types1` and `primitive_types2`
+
+`variables5` uses _shadowing_: a second `let` with the same name declares a new
+variable that hides the first one and may have a different type. `variables6` is
+about `const` and follows in the User-Defined Types segment.
 
 Then continue with the exercise below.
 

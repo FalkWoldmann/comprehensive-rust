@@ -47,3 +47,11 @@ mod tests {
 
 - This lets you unit test private helpers.
 - The `#[cfg(test)]` attribute is only active when you run `cargo test`.
+
+<details>
+
+- `mod tests { ... }` declares a nested module, and `use super::*` brings
+  everything from the surrounding module into it, including private functions.
+  Modules are covered in detail later today.
+
+</details>

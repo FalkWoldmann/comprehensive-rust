@@ -57,3 +57,11 @@ fn main() -> Result<()> {
 [1]: https://doc.rust-lang.org/std/io/trait.Read.html
 [2]: https://doc.rust-lang.org/std/io/trait.BufRead.html
 [3]: https://doc.rust-lang.org/std/io/trait.Write.html
+
+<details>
+
+- The `?` operator returns early from the function if a `Result` is an `Err`,
+  and `main` may return a `Result`. Both are explained in the Error Handling
+  segment, which follows this one.
+
+</details>

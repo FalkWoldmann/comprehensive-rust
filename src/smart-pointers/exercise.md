@@ -13,9 +13,10 @@ Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
 
 - `box1`
 - `rc1`
-- `cow1`
 
-`arc1` uses `Arc` with threads and belongs to the Concurrency deep dive.
+`cow1` is optional: it is about `Cow`, a clone-on-write pointer this course does
+not cover, so read the documentation of `std::borrow::Cow` first. `arc1` uses
+`Arc` with threads and belongs to the Concurrency deep dive.
 
 Then continue with the exercise below.
 

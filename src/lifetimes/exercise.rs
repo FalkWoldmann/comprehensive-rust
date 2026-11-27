@@ -152,18 +152,16 @@ fn parse_message<'a, T: ProtoMessage<'a>>(mut data: &'a [u8]) -> T {
 }
 // ANCHOR_END: parse_message
 
-#[derive(PartialEq)]
 // ANCHOR: message_phone_number_type
-#[derive(Debug, Default)]
+#[derive(Debug, Default, PartialEq)]
 struct PhoneNumber<'a> {
     number: &'a str,
     type_: &'a str,
 }
 // ANCHOR_END: message_phone_number_type
 
-#[derive(PartialEq)]
 // ANCHOR: message_person_type
-#[derive(Debug, Default)]
+#[derive(Debug, Default, PartialEq)]
 struct Person<'a> {
     name: &'a str,
     id: u64,

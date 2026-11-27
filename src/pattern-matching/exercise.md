@@ -11,7 +11,10 @@ SPDX-License-Identifier: CC-BY-4.0
 
 Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
 
-- `options1` to `options3`
+- `options2`
+
+`Option<T>` is an enum from the standard library with the variants `Some(T)` and
+`None`. `options1` and `options3` follow in the Standard Library Types segment.
 
 Then continue with the exercise below.
 
