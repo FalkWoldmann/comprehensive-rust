@@ -15,6 +15,10 @@ Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
 - `move_semantics4` and `move_semantics5`
 - `strings1` to `strings4`
 
+`strings3` needs two string methods that are not on the slides: `s.trim()`
+returns a `&str` without the whitespace at both ends, and `s.replace("a", "b")`
+returns a new `String`.
+
 Then continue with the exercise below.
 
 We will create a few utility functions for 3-dimensional geometry, representing

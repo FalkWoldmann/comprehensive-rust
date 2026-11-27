@@ -15,9 +15,11 @@ Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
 - `structs1` and `structs2`
 - `enums1` and `enums2`
 
-`structs1` also asks for a _unit struct_, a struct without fields:
-`struct UnitStruct;`. `structs2` needs _struct update syntax_:
-`Order { count: 1, ..template }` takes the remaining fields from `template`.
+`structs1` also uses a _unit struct_, a struct without fields. It is declared as
+`struct UnitStruct;` and its only value is written the same way:
+`let unit_struct = UnitStruct;`. `structs2` needs _struct update syntax_:
+`Order { count: 1, ..order_template }` takes the remaining fields from
+`order_template`.
 
 `structs3` and `enums3` need methods and follow in the Methods and Traits
 segment.

@@ -15,6 +15,10 @@ Start with the matching [Rustlings](https://rustlings.rust-lang.org/) exercises:
 - `from_into`
 - `as_ref_mut`
 
+`as_ref_mut` is about `AsRef` and `AsMut`, two conversion traits this course
+does not cover: `T: AsRef<str>` means `arg.as_ref()` gives a `&str`, and
+`T: AsMut<u32>` means `arg.as_mut()` gives a `&mut u32`.
+
 `from_str` and `try_from_into` return a `Result` and follow in the Error
 Handling segment.
 

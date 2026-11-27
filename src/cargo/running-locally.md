@@ -9,7 +9,8 @@ If you want to experiment with the code on your own system, then you will need
 to first install Rust. Do this by following the
 [instructions in the Rust Book][1]. This should give you a working `rustc` and
 `cargo`. Check the installation with `rustc --version` and `cargo --version`.
-You need Rust 1.85 or later, since the examples use the 2024 edition.
+You need Rust 1.88 or later: the examples use the 2024 edition, and Rustlings
+6.5.0 does not build with an older compiler.
 
 With this in place, follow these steps to build a Rust binary from one of the
 examples in this training:
